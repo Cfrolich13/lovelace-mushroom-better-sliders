@@ -252,7 +252,7 @@ export class SliderItem extends LitElement {
             const getPanTargetValue = (e) => {
                 const percentage = getPercentageFromEvent(e);
 
-                const deltaPercentage = (percentage - panstartPercentage) * this.speedFactor;
+                const deltaPercentage = (percentage - panstartPercentage);
                 const deltaValue = (this.max - this.min) * deltaPercentage;
 
                 let clamped = Math.max(Math.min(savedValue + deltaValue, this.max), this.min);
