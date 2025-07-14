@@ -221,7 +221,7 @@ export class SliderItem extends LitElement {
     @query("#slider")
     private slider;
 
-    private speedFactor = 0.7;
+    private speedFactor = 0.8;
     private previewThrottle = 130; // ms
 
     setupListeners() {
@@ -252,7 +252,7 @@ export class SliderItem extends LitElement {
             const getPanTargetValue = (e) => {
                 const percentage = getPercentageFromEvent(e);
 
-                const deltaPercentage = (percentage - panstartPercentage);
+                const deltaPercentage = (percentage - panstartPercentage) * this.speedFactor;
                 const deltaValue = (this.max - this.min) * deltaPercentage;
 
                 let clamped = Math.max(Math.min(savedValue + deltaValue, this.max), this.min);
